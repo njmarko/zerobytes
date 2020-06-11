@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+/ZeroBytes/ZeroBytes/My Advisor Results - ZeroBytes
+/ZeroBytes/ZeroBytes.VC.db
+/ZeroBytes/ZeroBytes.VC.VC.opendb
