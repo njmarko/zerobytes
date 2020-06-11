@@ -9,6 +9,20 @@
 */
 
 #include <string>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <experimental/filesystem> // http://en.cppreference.com/w/cpp/experimental/fs
+#include <bitset>
+
+
+#define __BIN__  0
+#define __HEX__  1
+#define NAMESIZE 150
+/*
+* Size of the identificator for zerobytes files
+*/
+#define ZB_ID_SIZE 10
 
 /**
 * This function loads the binary file and converts it to multiple zerobytes files

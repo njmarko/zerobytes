@@ -9,11 +9,12 @@
 
 
 #include <string>
+#include "ZeroBytesConversion.h"
 
 int main(int argc, char* argv[]) {
 
-	std::string filename("data.zip");
-
+	std::string filename("infile.zip");
+	ConvertToZerobytes(filename,"nesto");
 
 
 	return 0;
