@@ -1,6 +1,7 @@
 #pragma once
 /*
 * Author: Marko Njegomir
+* Email:  njmarko1991@gmail.com
 * Project: Program that converts the binary code of any file into multiple zerobytes files.
 *		   These zerobytes files contain all the binary code in the names of the files in ASCII format.
 *		   Because the code is in the name, the file appears to take up 0 bytes of storage (although name itself must be stored)
@@ -14,10 +15,25 @@
 #include <sstream>
 #include <experimental/filesystem> // http://en.cppreference.com/w/cpp/experimental/fs
 #include <bitset>
+#include <vector>
+#include <regex>
+#include <stdio.h>
 
+/**
+* Filenames used by the experimental library filesystem
+*/
+typedef std::experimental::filesystem::path Path;
 
+// used for generating binary ascii characters in  filenames
 #define __BIN__  0
+
+// used for generating hexadecimal ascii characters in filenames
 #define __HEX__  1
+
+/*
+* Defines now many characters will be written into the name of the file. Windows limit is around 260 chars
+* but it can be configured to be 32,767 characters
+*/
 #define NAMESIZE 150
 /*
 * Size of the identificator for zerobytes files
@@ -31,7 +47,7 @@
 * @param in_filename string destination of the file that is about to be converted
 * @param out_folder string destination of the folder where zerobytes files will be placed
 */
-void ConvertToZerobytes(std::string in_filename, std::string out_folder);
+void ConvertToZerobytes(const std::string& in_filename, const std::string& out_folder);
 
 /**
 * This function loads the binary ASCII code from the names of zerobytes files in the specified folder
@@ -40,6 +56,12 @@ void ConvertToZerobytes(std::string in_filename, std::string out_folder);
 * @param in_folder string destination of the folder that contains zerobytes files that will be loaded
 * @param out_filename string destination and name of the file that will be created from the loaded code
 */
-void ConvertFromZerobytes(std::string in_folder, std::string out_filename);
+void ConvertFromZerobytes(const std::string& in_folder, const std::string& out_filename);
 
-
+/**
+* Function that reads the filenames in the folder path and adds them to the vector of strings
+* Solution found at: http://www.cplusplus.com/forum/windows/189681/
+* @param path name
+* @returns vector of strings that contain the filenames
+*/
+std::vector<std::string> get_filenames(Path path);
