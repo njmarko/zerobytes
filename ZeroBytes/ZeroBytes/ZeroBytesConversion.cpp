@@ -4,8 +4,11 @@
 * Project: Program that converts the binary code of any file into multiple zerobytes files.
 *		   These zerobytes files contain all the binary code in the names of the files in ASCII format.
 *		   Because the code is in the name, the file appears to take up 0 bytes of storage (although name itself must be stored)
-*		   If these zerobytes files are stored on the cloud, then the company that provides the service will not notice
-*		   that these files take up space.
+*		   If these zerobytes files are stored on google drive for example, then it will also report that the filesize is 0 bytes.
+*
+*		   This is just a prototype that creates files that contain only 160 characters in the generated filenames.
+*		   It can be changed so it creates files with up to 32,767 characters in the file name.
+*
 */
 #include "ZeroBytesConversion.h"
 
